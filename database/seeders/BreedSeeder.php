@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cat;
+use App\Models\Breed;
 use Illuminate\Database\Seeder;
 
-class CatSeeder extends Seeder
+class BreedSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class CatSeeder extends Seeder
      */
     public function run()
     {
-        Cat::factory(50)->create();
+        Breed::factory(10)->create();
     }
 }

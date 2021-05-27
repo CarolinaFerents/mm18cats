@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Breed;
 use App\Models\Cat;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,13 +23,14 @@ class CatFactory extends Factory
     public function definition()
     {
         $gender = $this->faker->randomElement(['MALE', 'FEMALE']);
+
         return [
             'name' => $this->faker->firstName(strtolower($gender)),
             'gender' => $gender,
-            'birthdate'=> $this->faker->dateTimeThisDecade(),
-            'breed'=> $this->faker->word(),
-            'description'=> $this->faker->sentences(3, true),
-
+            'birthday' => $this->faker->dateTimeThisDecade(),
+            'breed_id' => Breed::inRandomOrder()->first(),
+            'tag_id' => Tag::inRandomOrder()->first(),
+            'description' => $this->faker->sentences(3,true),
         ];
     }
 }
